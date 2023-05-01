@@ -1,0 +1,10 @@
+pendulum
+elasticsearch==8.6.0
+numpy
+pandas
+pyarrow
+pydantic
+pyspark
+pyyaml
+google-cloud-storage
+google-cloud-pubsub
