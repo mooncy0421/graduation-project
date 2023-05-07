@@ -1,0 +1,20 @@
+dag_crawl_news_info:
+  - task_id: load_news_url_title
+    ingress:
+      urls:
+        - "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=731&sid1=105&date="  # mobile
+        - "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=226&sid1=105&date="  # 인터넷/sns
+        - "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=227&sid1=105&date="  # 통신/뉴미디어
+        - "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=230&sid1=105&date="  # IT 일반
+        - "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=732&sid1=105&date="  # 보안/해킹
+        - "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=283&sid1=105&date="  # 컴퓨터
+        - "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=229&sid1=105&date="  # 게임 리뷰
+        - "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=228&sid1=105&date="  # 과학 일반
+    egress:
+      domain_name: url_title
+  
+  - task_id: load_news_info
+    ingress:
+      domain_name: url_title
+    egress:
+      domain_name: news_info
