@@ -1,3 +1,4 @@
 log/*
-*.egg-info
+*.log
+*.egg*
 __pycache__
