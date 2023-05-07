@@ -1,5 +1,5 @@
-import json
-import pendulum # TODO: install
+import yaml
+import pendulum
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
@@ -9,8 +9,8 @@ from airflow.operators.python import PythonOperator
 from airflow.utils.task_group import TaskGroup
 from airflow import settings
 
-from load_news_url_title import LoadNewsUrlTitle
-from load_news_info import LoadNewsInfo
+from crawl.tasks.load_news_url_title import LoadNewsUrlTitle
+from crawl.tasks.load_news_info import LoadNewsInfo
 
 
 DAG_RUNID_FORMAT = r"%Y-%m-%dT%H:%M:%S%z"
@@ -80,7 +80,7 @@ with DAG(
     dag_config_file_path = "/home/hcy/workspace/graduation-project/builds/resources/dag.yml"
 
     with open(dag_config_file_path, "r") as f:
-        dag_config = yaml.load(f, Loader=yaml.loader)[DAG_ID]
+        dag_config = yaml.load(f, Loader=yaml.Loader)[DAG_ID]
 
     tasks = build_tasks(dag_config, dag)
     tasks
