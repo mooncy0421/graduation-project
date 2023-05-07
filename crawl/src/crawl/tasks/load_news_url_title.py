@@ -11,16 +11,6 @@ from configs.get_logger import init_logger
 
 LOGGER = init_logger(log_filename="airflow")
 
-urls = [
-    "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=731&sid1=105&date=20230506", # mobile
-    "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=226&sid1=105&date=20230506", # 인터넷/sns
-    "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=227&sid1=105&date=20230506", # 통신/뉴미디어
-    "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=230&sid1=105&date=20230506", # IT 일반
-    "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=732&sid1=105&date=20230506", # 보안/해킹
-    "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=283&sid1=105&date=20230506", # 컴퓨터
-    "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid2=229&sid1=105&date=20230506", # 게임 리뷰
-    "https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=105&sid2=228"                # 과학 일반
-]
 
 class LoadNewsUrlTitle():
     def __init__(self, task_config):
