@@ -25,7 +25,7 @@ def parse_html(news_url):
 
 @udf(StringType())
 def get_editor_name(parsed_news, title):
-    parsed_news = BeautifulSoup(parsed_news)
+    parsed_news = BeautifulSoup(parsed_news, "html.parser")
     try:
         editor_name = parsed_news.find("em", "media_end_head_journalist_layer_name").text.strip(" 기자")
     except:
