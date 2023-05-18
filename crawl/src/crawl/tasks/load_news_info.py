@@ -1,7 +1,7 @@
 import re
 import time
-import json
 import requests
+from datetime import datetime
 from bs4 import BeautifulSoup
 
 from pyspark.sql.types import Row, StringType
@@ -50,7 +50,7 @@ def get_news_datetime(parsed_news, title):
     try:
         news_datetime = parsed_news.find("div", "media_end_head_info_datestamp_bunch").find("span").get("data-date-time")    # 투고 일시
     except:
-        news_datetime = ""
+        news_datetime = str(datetime.now().strftime("%Y-%m-%d %H:%m:%S"))
         LOGGER.info(f"Can not parse NEWS DATETIME from : {title}")
     return news_datetime
 
